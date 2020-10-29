@@ -26,7 +26,7 @@ const Profile = () => {
   }, []);
 
   const followUser = () => {
-    fetch("https://cors-anywhere.herokuapp.com/follow", {
+    fetch("https://instapost562.herokuapp.com/follow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const Profile = () => {
       });
   };
   const unfollowUser = () => {
-    fetch("https://cors-anywhere.herokuapp.com/unfollow", {
+    fetch("https://instapost562.herokuapp.com/unfollow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
