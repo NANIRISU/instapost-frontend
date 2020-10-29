@@ -36,7 +36,7 @@ const Profile = (props) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          fetch("/updatepic", {
+          fetch("https://cors-anywhere.herokuapp.com/updatepic", {
             method: "put",
             headers: {
               "Content-Type": "application/json",
