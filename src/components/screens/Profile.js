@@ -272,6 +272,54 @@ const Profile = (props) => {
           color: "blue",
         }}
       ></div>
+      <div className="card-content">
+              {item.likes.includes(state._id) ? (
+                <i
+                  className="material-icons"
+                  style={{ color: "red" }}
+                  onClick={() => {
+                    unlikePost(item._id);
+                  }}
+                >
+                  favorite{" "}
+                </i>
+              ) : (
+                <i
+                  className="material-icons"
+                  onClick={() => {
+                    likePost(item._id);
+                  }}
+                >
+                  favorite_border{" "}
+                </i>
+              )}
+
+              <h6>{item.likes.length} likes</h6>
+              <h5>{item.title}</h5>
+              <p>{item.body}</p>
+              {item.comments.map((record) => {
+                return (
+                  record.postedBy !== null && (
+                    <h6 key={record._id}>
+                      <span style={{ fontWeight: "500" }}>
+                        {record.postedBy.name && record.postedBy.name !== null
+                          ? record.postedBy.name
+                          : "0"}{" "}
+                      </span>{" "}
+                      {record.text}{" "}
+                    </h6>
+                  )
+                );
+              })}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  makeComment(e.target[0].value, item._id);
+                }}
+              >
+                <input type="text" placeholder="comment" />
+              </form>
+            </div>
       {mypics !== null && mypics.length > 0 ? (
         <div>
           {galleryview ? (
@@ -310,6 +358,7 @@ const Profile = (props) => {
                           {item.postedBy._id !== null &&
                             item.postedBy._id === state._id && (
                               <i
+
                                 className="material-icons"
                                 style={{ float: "right" }}
                                 onClick={() => deletePost(item._id)} //delete icon display here
