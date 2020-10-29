@@ -17,7 +17,7 @@ const Home = () => {
       });
   }, []);
   const likePost = (id) => {
-    fetch("/like", {
+    fetch("https://cors-anywhere.herokuapp.com/https://instapost562.herokuapp.com/like", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Home = () => {
       });
   };
   const unlikePost = (id) => {
-    fetch("/unlike", {
+    fetch("https://cors-anywhere.herokuapp.com/https://instapost562.herokuapp.com/unlike", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const Home = () => {
       });
   };
   const makeComment = (text, postId) => {
-    fetch("/comment", {
+    fetch("https://cors-anywhere.herokuapp.com/https://instapost562.herokuapp.com/comment", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const Home = () => {
   };
 
   const deletePost = (postid) => {
-    fetch(`/deletepost/${postid}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://instapost562.herokuapp.com/deletepost/${postid}`, {
       method: "delete",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
